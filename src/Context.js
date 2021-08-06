@@ -114,7 +114,7 @@ class RoomProvider extends Component {
     //console.log(tempRooms);
 
     // filter by price
-    //tempRooms = tempRooms.filter((room) => room.price <= price);
+    tempRooms = tempRooms.filter((room) => room.price <= price);
     //console.log(tempRooms);
 
     // filter by Date
