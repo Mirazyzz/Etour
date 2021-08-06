@@ -4,28 +4,27 @@ import 'react-day-picker/lib/style.css';
 import { RoomContext } from '../Context';
 import { makeStyles } from '@material-ui/core/styles';
 import Title from './Title';
-import DateTimePicker from './DatePicker';
-import Slider from './SelectRange';
+//import DateTimePicker from './DatePicker';
+//import Slider from './SelectRange';
 import NativeSelects from './Select';
 import InputLabel from '@material-ui/core/InputLabel';
 import Select from '@material-ui/core/Select';
 import FormControl from '@material-ui/core/FormControl';
 
 // get unique values of rooms data
-const getUnique = (items, value) => {
-  return [...new Set(items.map((item) => item[value]))];
-};
+// const getUnique = (items, value) => {
+//   return [...new Set(items.map((item) => item[value]))];
+// };
 
 export default function RoomsFilter({ rooms }) {
   const context = useContext(RoomContext);
-  const prices = [...new Set(rooms.map((room) => room.price))];
+  //const prices = [...new Set(rooms.map((room) => room.price))];
 
-  const { handleChange, handleDayClick, handlePriceChange, selectedDate } =
-    context;
+  const { handleChange } = context;
 
-  let types = getUnique(rooms, 'type');
+  //let types = getUnique(rooms, 'type');
   // add 'all' type
-  types = ['all', ...types].sort((a, b) => a.length - b.length);
+  //types = ['all'].sort((a, b) => a.length - b.length);
 
   // get data in JSX format
 
