@@ -15,17 +15,16 @@ export default function Contacts() {
       <div className="contact-section">
         <div className="contact-info">
           <div>
-            <i className="fas fa-map-marker-alt"></i>Bartycka 16A, 00-716,
-            Warszawa,
+            <i className="fas fa-map-marker-alt"></i>Ташкент
           </div>
           <div>
-            <i className="fas fa-envelope"></i>tadeusz@bist.pl
+            <i className="fas fa-envelope"></i>elysiumtour@gmail.com
           </div>
           <div>
-            <i className="fas fa-phone"></i>+00 0000 000 000
+            <i className="fas fa-phone"></i>+998 94 654-20-70
           </div>
           <div>
-            <i className="fas fa-clock"></i>Mon - Fri 9:00 - 18:00
+            <i className="fas fa-clock"></i>Пн - Пт 9:00 - 18:00
           </div>
         </div>
         <ContactForm />
