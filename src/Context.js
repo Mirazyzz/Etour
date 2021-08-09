@@ -12,20 +12,15 @@ class RoomProvider extends Component {
     super(props);
 
     this.state = {
-      rooms: [],
-      sortedRooms: [],
-      featuredRooms: [],
+      tours: [],
+      sortedTours: [],
+      featuredTours: [],
       loading: true,
-      type: 'all',
+      country: 'all',
       capacity: '1',
       price: 0,
       minPrice: 500,
       maxPrice: 600,
-      minSize: 0,
-      maxSize: 1000,
-      breakfast: false,
-      pets: false,
-      selectedDate: new Date(),
     };
   }
 
@@ -36,24 +31,25 @@ class RoomProvider extends Component {
   getData = async () => {
     try {
       let response = await Client.getEntries({
-        content_type: 'hostelRoom',
-        order: 'fields.price',
+        content_type: 'tour',
       });
 
-      const rooms = this.formatData(response.items);
-      const featuredRooms = rooms.filter((room) => room.featured === true);
-      let maxPrice = Math.max(...rooms.map((el) => el.price));
+      const tours = this.formatData(response.items);
+      console.log('tours');
+      console.log(tours);
+      const featuredTours = tours.filter((room) => room.featured === true);
+      let maxPrice = Math.max(...tours.map((el) => el.price));
 
       this.setState({
-        rooms: rooms,
-        sortedRooms: rooms,
-        featuredRooms: featuredRooms,
+        tours: tours,
+        sortedTours: tours,
+        featuredTours: featuredTours,
         loading: false,
         price: maxPrice,
         maxPrice,
       });
     } catch (err) {
-      console.error(err);
+      console.error(`error fetching data: ${err}`);
     }
   };
 
@@ -61,12 +57,9 @@ class RoomProvider extends Component {
     let formattedItems = items.map((item) => {
       let id = item.sys.id;
       let images = item.fields.images.map((image) => image.fields.file.url);
-      let room = { ...item.fields, images, id };
+      let tour = { ...item.fields, images, id };
 
-      // format date of the room
-      room.avialableFrom = formatDate(room.avialableFrom);
-
-      return room;
+      return tour;
     });
 
     return formattedItems;

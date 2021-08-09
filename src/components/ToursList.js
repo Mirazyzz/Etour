@@ -1,9 +1,9 @@
 import React from 'react';
 
-import Room from './Room';
+import Tour from './Tour';
 
-export default function RoomsList({ rooms }) {
-  if (rooms.length === 0) {
+export default function ToursList({ tours }) {
+  if (tours?.length === 0) {
     return (
       <div className="empty-search">
         <h3>unfortunately no rooms matched your search parameters</h3>
@@ -14,8 +14,8 @@ export default function RoomsList({ rooms }) {
   return (
     <section className="roomsList">
       <div className="roomslist-center">
-        {rooms.map((item) => {
-          return <Room key={item.id} room={item} />;
+        {tours.map((item) => {
+          return <Tour key={item.id} tour={item} />;
         })}
       </div>
     </section>

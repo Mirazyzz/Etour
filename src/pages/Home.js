@@ -11,7 +11,7 @@ export default function Home() {
     <>
       <Hero>
         <Banner title="Elysium Tours">
-          <Link to="/rooms" className="btn-primary">
+          <Link to="/tours" className="btn-primary">
             Туры
           </Link>
         </Banner>
