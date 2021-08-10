@@ -1,11 +1,14 @@
 import React, { Component } from 'react';
+//import ReactDOM from 'react-dom';
 import { Link } from 'react-router-dom';
+import { Carousel } from 'react-responsive-carousel';
 
 import defaultBcg from '../images/room-1.jpeg';
 
 import Banner from '../components/Banner';
 import { RoomContext } from '../Context';
 import StyledHero from '../components/StyledHero';
+import 'react-responsive-carousel/lib/styles/carousel.min.css'; // requires a loader
 
 export default class SingleTour extends Component {
   static contextType = RoomContext;
@@ -22,9 +25,9 @@ export default class SingleTour extends Component {
   //componentDidMount() {}
 
   render() {
-    console.log('room');
     const { getRoom } = this.context;
     const room = getRoom(this.state.slug);
+
     if (!room) {
       return (
         <div className="error">
@@ -35,7 +38,7 @@ export default class SingleTour extends Component {
         </div>
       );
     }
-    console.log(room);
+
     const {
       city,
       price,
@@ -60,9 +63,11 @@ export default class SingleTour extends Component {
 
         <section className="single-room">
           <div className="single-room-images">
-            {defaultImg.map((item, index) => (
-              <img key={index} src={item} alt={city} />
-            ))}
+            <Carousel>
+              {defaultImg.map((item, index) => (
+                <img key={index} src={item} alt={city} />
+              ))}
+            </Carousel>
           </div>
           <div className="single-room-info">
             <article className="desc">
@@ -79,7 +84,7 @@ export default class SingleTour extends Component {
           </div>
         </section>
         <section className="room-extras">
-          <h6>Доп. инфо</h6>
+          <h6>В цену включено</h6>
           <ul className="extras">
             {info.map((item, index) => {
               return <li key={index}>- {item}</li>;

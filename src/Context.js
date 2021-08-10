@@ -16,7 +16,7 @@ class RoomProvider extends Component {
       sortedTours: [],
       featuredTours: [],
       loading: true,
-      country: 'all',
+      city: 'all',
       capacity: '1',
       price: 0,
       minPrice: 500,
@@ -35,8 +35,6 @@ class RoomProvider extends Component {
       });
 
       const tours = this.formatData(response.items);
-      console.log('tours');
-      console.log(tours);
       const featuredTours = tours.filter((room) => room.featured === true);
       let maxPrice = Math.max(...tours.map((el) => el.price));
 
@@ -73,8 +71,11 @@ class RoomProvider extends Component {
     return room;
   };
 
-  handleChange = (typeName, newValue) => {
-    this.setState({ [typeName]: newValue }, this.filterRooms);
+  handleChange = (e) => {
+    // console.log(typeName);
+    // this.setState({ [typeName]: newValue }, this.filterRooms);
+    console.log(e.target.value);
+    this.setState({ city: e.target.value }, this.filterTours);
   };
 
   handlePriceChange = (newValue) => {
@@ -86,39 +87,16 @@ class RoomProvider extends Component {
     this.setState({ selectedDate: formatDate(day) }, this.filterRooms);
   };
 
-  filterRooms = () => {
-    let { rooms, type, capacity, price, selectedDate } = this.state;
-
-    // all the rooms
-    let tempRooms = [...rooms];
-
-    // transform values
-    capacity = Number(capacity);
-    //price = Number(price);
-
-    // filter by type
-    if (type !== 'all') {
-      tempRooms = tempRooms.filter((room) => room.type === type);
+  filterTours = () => {
+    let { tours, city } = this.state;
+    if (city === '') {
+      this.setState({ sortedTours: this.state.tours });
+      return;
     }
-
-    // filter by capacity
-    if (capacity !== 1) {
-      tempRooms = tempRooms.filter((room) => room.capacity >= capacity);
-    }
-    //console.log(tempRooms);
-
-    // filter by price
-    tempRooms = tempRooms.filter((room) => room.price <= price);
-    //console.log(tempRooms);
-
-    // filter by Date
-    if (selectedDate)
-      tempRooms = tempRooms.filter(
-        (room) => room.avialableFrom <= formatDate(selectedDate)
-      );
+    let tempTours = tours.filter((item) => item.city === city);
 
     // update state
-    this.setState({ sortedRooms: tempRooms });
+    this.setState({ sortedTours: tempTours });
   };
 
   render() {

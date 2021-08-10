@@ -4,31 +4,14 @@ import 'react-day-picker/lib/style.css';
 import { RoomContext } from '../Context';
 import { makeStyles } from '@material-ui/core/styles';
 import Title from './Title';
-//import DateTimePicker from './DatePicker';
-//import Slider from './SelectRange';
-import NativeSelects from './Select';
 import InputLabel from '@material-ui/core/InputLabel';
 import Select from '@material-ui/core/Select';
 import FormControl from '@material-ui/core/FormControl';
 
-// get unique values of rooms data
-// const getUnique = (items, value) => {
-//   return [...new Set(items.map((item) => item[value]))];
-// };
-
-export default function RoomsFilter({ rooms }) {
+export default function RoomsFilter({ tours }) {
   const context = useContext(RoomContext);
-  //const prices = [...new Set(rooms.map((room) => room.price))];
 
   const { handleChange } = context;
-
-  //let types = getUnique(rooms, 'type');
-  // add 'all' type
-  //types = ['all'].sort((a, b) => a.length - b.length);
-
-  // get data in JSX format
-
-  let pricesFor = ['1 day', '1 week', '1 month', '6 months'];
 
   const useStyles = makeStyles((theme) => ({
     formControl: {
@@ -49,36 +32,30 @@ export default function RoomsFilter({ rooms }) {
             <InputLabel htmlFor="grouped-native-select">
               Выберите город отправки
             </InputLabel>
-            <Select native defaultValue="" id="grouped-native-select">
+            <Select
+              native
+              defaultValue=""
+              id="grouped-native-select"
+              onChange={handleChange}
+            >
               <option aria-label="None" value="" />
               <optgroup label="Турция">
-                <option value={1}>Анталия</option>
-                <option value={2}>Стамбул</option>
-                <option value={3}>Бодрум</option>
-                <option value={4}>Мармарис</option>
+                <option value={'Анталия'}>Анталия</option>
+                <option value={'Стамбул'}>Стамбул</option>
+                <option value={'Бодрум'}>Бодрум</option>
+                <option value={'Мармарис'}>Мармарис</option>
               </optgroup>
               <optgroup label="ОАЭ">
-                <option value={5}>Дубаи</option>
-                <option value={6}>Шарджа</option>
+                <option value={'Дубаи'}>Дубаи</option>
+                <option value={'Шарджа'}>Шарджа</option>
               </optgroup>
               <optgroup label="Египет">
-                <option value={7}>Шарм Эль шейх</option>
-                <option value={8}>Хурганда</option>
+                <option value={'Шарм Эль шейх'}>Шарм Эль шейх</option>
+                <option value={'Хурганда'}>Хурганда</option>
               </optgroup>
             </Select>
           </FormControl>
           {/*end select type */}
-
-          {/*guests */}
-          <div className="form-group">
-            <NativeSelects
-              items={pricesFor}
-              selectName="capacity"
-              title="Price for"
-              handleChange={handleChange}
-            />
-          </div>
-          {/*end guests */}
         </form>
       </form>
     </section>
