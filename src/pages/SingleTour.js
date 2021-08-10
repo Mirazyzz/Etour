@@ -7,7 +7,7 @@ import Banner from '../components/Banner';
 import { RoomContext } from '../Context';
 import StyledHero from '../components/StyledHero';
 
-export default class SingleRoom extends Component {
+export default class SingleTour extends Component {
   static contextType = RoomContext;
 
   constructor(props) {
@@ -22,29 +22,27 @@ export default class SingleRoom extends Component {
   //componentDidMount() {}
 
   render() {
+    console.log('room');
     const { getRoom } = this.context;
     const room = getRoom(this.state.slug);
-
     if (!room) {
       return (
         <div className="error">
-          <h3>No such room could be found :(</h3>
-          <Link to="/rooms" className="btn-primary">
+          <h3>No such tour could be found :(</h3>
+          <Link to="/tours" className="btn-primary">
             Back home
           </Link>
         </div>
       );
     }
-
+    console.log(room);
     const {
-      name,
-      description,
-      capacity,
-      size,
+      city,
       price,
-      extras,
-      breakfast,
-      pets,
+      info,
+      //extras,
+      //breakfast,
+      //pets,
       images,
     } = room;
 
@@ -53,9 +51,9 @@ export default class SingleRoom extends Component {
     return (
       <>
         <StyledHero img={mainImg || this.state.defaultBcg}>
-          <Banner title={name}>
-            <Link to="/rooms" className="btn-primary">
-              Back to home
+          <Banner title={city}>
+            <Link to="/tours" className="btn-primary">
+              Туры
             </Link>
           </Banner>
         </StyledHero>
@@ -63,31 +61,27 @@ export default class SingleRoom extends Component {
         <section className="single-room">
           <div className="single-room-images">
             {defaultImg.map((item, index) => (
-              <img key={index} src={item} alt={name} />
+              <img key={index} src={item} alt={city} />
             ))}
           </div>
           <div className="single-room-info">
             <article className="desc">
-              <h3>Details</h3>
-              <p>{description}</p>
+              <h3>Описание</h3>
+              <p>{room.description}</p>
             </article>
             <article className="info">
-              <h3>Info</h3>
-              <h6>Price: {price}pln</h6>
-              <h6>Size: {size}pln</h6>
-              <h6>
-                Capacity:{' '}
-                {capacity > 1 ? `${capacity} people` : `${capacity} person`}
-              </h6>
-              <h6>{pets ? 'pets are allowed' : 'no pets allowed'}</h6>
-              <h6>{breakfast && 'free breakfast included'}</h6>
+              <h3>Детали</h3>
+              <p>
+                Цена: {price}$ на одного человека при двухместном размещение.
+              </p>
+              <p>Длительность отдыха: от 2 до 3 недель.</p>
             </article>
           </div>
         </section>
         <section className="room-extras">
-          <h6>extras</h6>
+          <h6>Доп. инфо</h6>
           <ul className="extras">
-            {extras.map((item, index) => {
+            {info.map((item, index) => {
               return <li key={index}>- {item}</li>;
             })}
           </ul>

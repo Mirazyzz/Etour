@@ -59,6 +59,7 @@ class RoomProvider extends Component {
       let images = item.fields.images.map((image) => image.fields.file.url);
       let tour = { ...item.fields, images, id };
 
+      console.log(tour);
       return tour;
     });
 
@@ -66,7 +67,7 @@ class RoomProvider extends Component {
   }
 
   getRoom = (slug) => {
-    let tempRooms = Array.from(this.state.rooms);
+    let tempRooms = Array.from(this.state.tours);
     const room = tempRooms.find((el) => el.slug === slug);
 
     return room;

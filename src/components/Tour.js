@@ -14,7 +14,7 @@ export default function Tour({ tour }) {
           <h6>{price}$</h6>
           <p>за человека</p>
         </div>
-        <Link to={`/rooms/${slug}`} className="btn-primary room-link">
+        <Link to={`/tours/${slug}`} className="btn-primary room-link">
           Детали
         </Link>
       </div>

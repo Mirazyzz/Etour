@@ -68,7 +68,7 @@ const ContactForm = () => {
           {result.message}
         </p>
       )}
-      <h2>Contact Us</h2>
+      <h2>Напишите нам</h2>
       <form className="contact" onSubmit={sendEmail}>
         <input
           type="text"
