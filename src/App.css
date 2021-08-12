@@ -299,11 +299,10 @@ h6 {
 }
 .services h6 {
   letter-spacing: var(--mainSpacing);
-  text-transform: capitalize;
 }
 .services p {
   width: 80%;
-  margin: 0 auto;
+  margin: 2 auto;
 }
 @media screen and (min-width: 992px) {
   .services-center {
@@ -775,7 +774,7 @@ h6 {
 }
 
 .about-description p {
-  color: #5f4c06;
+  color: darkslategrey;
   font-family: 'Helvetica Neue', sans-serif;
   font-size: 22px;
   line-height: 24px;
@@ -793,7 +792,7 @@ h6 {
 }
 
 .services-list li {
-  color: #685206;
+  color: darkslategrey;
   font-family: 'Helvetica Neue', sans-serif;
   font-size: 22px;
   line-height: 24px;
@@ -803,12 +802,8 @@ h6 {
   padding-left: 1.3em;
 }
 
-.services-list li:before {
-  content: '\f00c'; /* FontAwesome Unicode */
-  font-family: FontAwesome;
-  display: inline-block;
-  margin-left: -1.3em; /* same as padding-left set on li */
-  width: 1.3em; /* same as padding-left set on li */
+.services-list li span {
+  margin-right: 1em;
 }
 
 .about-title {

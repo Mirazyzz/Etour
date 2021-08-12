@@ -10,7 +10,7 @@ export default function Home() {
   return (
     <>
       <Hero>
-        <Banner title="Elysium Tours">
+        <Banner title="ELYSIUMTOUR">
           <Link to="/tours" className="btn-primary">
             Туры
           </Link>

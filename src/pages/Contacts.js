@@ -4,9 +4,9 @@ import MapSection from '../components/Map';
 import ContactForm from '../components/ContactForm';
 
 const location = {
-  address: 'Poland, Warsaw, Bartycka 16A',
-  lat: 52.21268,
-  lng: 21.07049,
+  address: '34 Istikbol Street',
+  lat: 41.30174339749936,
+  lng: 69.28860200083882,
 };
 
 export default function Contacts() {
@@ -15,10 +15,11 @@ export default function Contacts() {
       <div className="contact-section">
         <div className="contact-info">
           <div>
-            <i className="fas fa-map-marker-alt"></i>Ташкент
+            <i className="fas fa-map-marker-alt"></i>г.Ташкент, Мирабадский
+            район, улица Истикбол-34, 2 этаж
           </div>
           <div>
-            <i className="fas fa-envelope"></i>elysiumtour@gmail.com
+            <i className="fas fa-envelope"></i>info@elysiumtour.uz
           </div>
           <div>
             <i className="fas fa-phone"></i>+998 94 654-20-70

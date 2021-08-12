@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import {
-  FaUmbrellaBeach,
-  FaPlane,
-  FaShuttleVan,
-  FaHotel,
+  FaHeart,
+  FaHighlighter,
+  FaMoneyBillAlt,
+  FaHandshake,
 } from 'react-icons/fa';
 
 import Title from './Title';
@@ -12,24 +12,24 @@ export default class Services extends Component {
   state = {
     services: [
       {
-        icon: <FaUmbrellaBeach />,
-        title: 'Туры',
-        info: 'Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. ',
+        icon: <FaMoneyBillAlt />,
+        title: 'Демократичные и объективные цены',
+        info: 'Низкие цены на различные цены дают возможность нашим клиентам путешествовать с огромным удовольствием, экономя семейный бюджет.',
       },
       {
-        icon: <FaPlane />,
-        title: 'Авиабилеты',
-        info: 'Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. ',
+        icon: <FaHandshake />,
+        title: 'Удобные и прозрачные условия сотрудничества',
+        info: 'Мы предельно честно рассказываем нашим клиентам обо всех тонкостях и особенностях поездки, ведь для нас крайне важно не просто продать тур, а сделать так, чтобы клиент остался доволен.',
       },
       {
-        icon: <FaShuttleVan />,
-        title: 'Трансфер',
-        info: 'Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. ',
+        icon: <FaHighlighter />,
+        title: 'Оперативная работа',
+        info: 'Оформление заявок происходит довольно быстро и согласно всем требованиям туристов. Если же в заявке случаются какие-либо изменения, то мы стараемся оперативно сообщить обо всех переменах любым удобным для вас способом (смс, мессенджер, электронная почта, звонок по телефону).',
       },
       {
-        icon: <FaHotel />,
-        title: 'Отели',
-        info: 'Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. ',
+        icon: <FaHeart />,
+        title: 'Высокое качество предоставляемых услуг',
+        info: 'Пожелания каждого клиента мы внимательно и выслушиваем и стараемся максимально удовлетворить запросы наших туристов, даже если это бывает сложно или практически невозможно.',
       },
     ],
   };
@@ -37,7 +37,7 @@ export default class Services extends Component {
   render() {
     return (
       <section className="services">
-        <Title title="Наши услуги" />
+        <Title title="Почему выбирают услуги ELYSIUMTOUR" />
         <div className="services-center">
           {this.state.services.map((item, index) => {
             return (
